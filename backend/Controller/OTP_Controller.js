@@ -119,7 +119,7 @@ class OTP_Class {
                 expireAt: new Date().getTime()+54000,
                 verify: false
             })
-            newMobileOTP.save(async (err, result) => {
+            newMobileOTP.save(async (err) => {
                 if (err) {
                     console.log(err)
                     return res.status(500).send("something error occured")

@@ -1,4 +1,3 @@
-const User = require("../db/UserSchema")
 class Stripe_Payment_Gateway {
     async Stripe_Payment(stripe, formatListItem, shipAddress, userId, CartItems) {
         console.log("stripe hooks call")

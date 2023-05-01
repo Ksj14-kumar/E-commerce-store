@@ -38,14 +38,14 @@ function LoginComponents() {
                 const res = await loginByAPI(loginDetails).unwrap()
                 navigate(res)
                 toast.success("login success", { duration: 3000, position: "bottom-center" })
-                window.location.href= res
+                window.location.href = res
             } catch (err) {
                 if (isFetchBaseQueryError(err)) {
                     if (err.data) {
                         toast.error(JSON.stringify(err.data), { duration: 2000, position: "bottom-center" })
                     }
                 }
-                else if(isErrorWithMessage(err)){
+                else if (isErrorWithMessage(err)) {
                     toast.error(JSON.stringify(err.message), { duration: 2000, position: "bottom-center" })
                 }
             }
@@ -59,7 +59,7 @@ function LoginComponents() {
                         return (<div key={item.id} className="input_fields w-[90%] py-2">
                             <input
                                 onChange={onInputHandler}
-                                type="text"
+                                type={item.id === 1 ? "text" : "password"}
                                 placeholder={item.name}
                                 name={item.name}
                                 // value={loginDetails.}
