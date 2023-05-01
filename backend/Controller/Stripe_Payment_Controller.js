@@ -3,8 +3,6 @@ const FormatItems = require("../Services/Stripe_Items")
 const { Stripe_Payment } = require("../Config/Stripe.Config")
 const { SaveOrderInDBAfterSuccessPayment } = require('../util/OrderShema_Operations');
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
-let endpointSecret;
-endpointSecret=process.env.STRIPE_END_POINT_SECRET // disabled for dev env,
 class Payment {
     async checkout_session(req, res) {
         try {
@@ -23,29 +21,25 @@ class Payment {
         }
     }
     async WebHook(req, res) {
+        const endpointSecret = process.env.STRIPE_END_POINT_SECRET
         const sig = req.headers['stripe-signature'];
+        const payload = req.body
         console.log("webhook")
         console.log(req.rawBody)
         let data, eventType;
-        if (endpointSecret) {
-            let event;
-            try {
-                console.log({endpointSecret})
-                event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-                console.log({ event })
-            } catch (err) {
-                console.log(err.message)
-                res.status(400).send(`Webhook Error: ${err.message}`);
-                return;
-            }
-            data = event.data.object
-            eventType = event.type
+        let event;
+        try {
+            console.log({ endpointSecret })
+            event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+            console.log({ event })
+        } catch (err) {
+            console.log(err.message)
+            res.status(400).send(`Webhook Error: ${err.message}`);
+            return;
         }
-        else {
-            data = req.body.data.object
-            eventType = req.body.type
-        }
-        console.log({eventType})
+        data = event.data.object
+        eventType = event.type
+        console.log({ eventType })
         if (eventType === "checkout.session.completed") {
             try {
                 const accessCustomerMetaData = await stripe.customers.retrieve(data.customer)
