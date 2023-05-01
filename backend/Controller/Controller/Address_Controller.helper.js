@@ -3,6 +3,7 @@ class Helper {
         this.message = ""
     }
     isValidAddressInfo = (err) => {
+        let errInstance;
         if ("name" in err.errors) {
             errInstance = err.errors.name.properties
             this.message = errInstance.message

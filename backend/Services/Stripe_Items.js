@@ -1,4 +1,4 @@
-module.exports = (items, totalItems) => {
+module.exports = (items) => {
     let updateItems = []
     items.forEach((item) => {
         updateItems.push({

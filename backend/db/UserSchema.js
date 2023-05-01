@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const { isValidPass } = require("../Services/isValidPass")
 const { isValidEmail } = require("../Services/EmailValid")
 const Schema = new mongoose.Schema({
     lname: {
