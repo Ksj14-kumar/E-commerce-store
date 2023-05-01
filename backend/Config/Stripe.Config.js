@@ -1,11 +1,11 @@
 const User = require("../db/UserSchema")
 class Stripe_Payment_Gateway {
-    async Stripe_Payment(stripe, formatListItem, shipAddress, userId,CartItems) {
+    async Stripe_Payment(stripe, formatListItem, shipAddress, userId, CartItems) {
         console.log("stripe hooks call")
-        const createCustomerWithMetaData= await stripe.customers.create({
-            metadata:{
-                userId:userId.toString(),
-                cartItems:CartItems.toString()
+        const createCustomerWithMetaData = await stripe.customers.create({
+            metadata: {
+                userId: userId.toString(),
+                cartItems: CartItems.toString()
             }
         })
         const res = await stripe.checkout.sessions.create({
@@ -14,7 +14,7 @@ class Stripe_Payment_Gateway {
                 enabled: true,
             },
             billing_address_collection: "required",
-            customer:createCustomerWithMetaData.id,
+            customer: createCustomerWithMetaData.id,
             line_items: formatListItem,
             mode: 'payment',
             success_url: `${process.env.UI_URL}/success_payment`,

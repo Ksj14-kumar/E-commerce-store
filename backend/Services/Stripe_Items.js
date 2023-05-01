@@ -14,7 +14,7 @@ module.exports = (items, totalItems) => {
                 },
                 unit_amount: Math.round(item.price) * 100,
             },
-            quantity: item.count,
+            quantity: item.count
         })
     })
     return [updateItems, [

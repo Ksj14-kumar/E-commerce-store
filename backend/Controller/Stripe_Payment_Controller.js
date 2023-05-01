@@ -2,7 +2,9 @@ const Item = require("../db/Item_Schema")
 const FormatItems = require("../Services/Stripe_Items")
 const { Stripe_Payment } = require("../Config/Stripe.Config")
 const { SaveOrderInDBAfterSuccessPayment } = require('../util/OrderShema_Operations');
-const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_SECRET,{
+    apiVersion: '2020-08-27',
+});
 class Payment {
     async checkout_session(req, res) {
         try {
