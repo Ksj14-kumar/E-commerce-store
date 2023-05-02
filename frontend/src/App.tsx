@@ -10,7 +10,7 @@ import { useGetCartItemsMutation, useGetProductsQuery, useOnSuccessMutation } fr
 function App() {
   const dispatchItem = useAppDispatch()
   const isAuth = useAppSelector(isAuthenticate)
-  const socket = useRef(io(process.env.BACKEND_URL+"/api/v1/nsp/address", {
+  const socket = useRef(io("/api/v1/nsp/address", {
     path: "/store",
     reconnection: false,
     withCredentials: true,

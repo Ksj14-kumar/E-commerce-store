@@ -90,7 +90,7 @@ require("./Services/Socket.connection").Socket(
 );
 app.get("*", (req, res) => {
   console.log("heii");
-  res.set("Content-Type", "text/javascript");
+  // res.set("Content-Type", "text/javascript");
   return res.sendFile(path.join(__dirname, "/view/index.html"));
 });
 // app.get("/",(req, res)=>{

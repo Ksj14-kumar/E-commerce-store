@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 const URL= process.env.BACKEND_URL
 export const newApiSlice = createApi({
     reducerPath: "cart",
-    baseQuery: fetchBaseQuery({ baseUrl:URL,credentials:"include" }),
+    baseQuery: fetchBaseQuery({ baseUrl:"/",credentials:"include" }),
     endpoints: (build) => ({
         addProduct: build.mutation<string, itemAddType>({
             query(item) {

@@ -3,7 +3,7 @@ import { ItemType } from '../../types/types';
 const URL= process.env.BACKEND_URL
 export const apiSlice = createApi({
     reducerPath: 'products',
-    baseQuery: fetchBaseQuery({ baseUrl: URL }),
+    baseQuery: fetchBaseQuery({ baseUrl: "/" }),
     endpoints: (builder) => ({
         getProducts: builder.query<ItemType[], "">({
             query: () => {

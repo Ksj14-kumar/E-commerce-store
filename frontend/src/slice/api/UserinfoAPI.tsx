@@ -3,7 +3,7 @@ import { allAddressType, login_Reducer_initial_type, nameAndLnameUpdatetype, reg
 const URL = process.env.BACKEND_URL
 export const UserDetaisAPI = createApi({
     reducerPath: "information",
-    baseQuery: fetchBaseQuery({ baseUrl:URL, credentials: "include" }),
+    baseQuery: fetchBaseQuery({ baseUrl:"/", credentials: "include" }),
     endpoints: (build) => ({
         userRegister: build.mutation<{ message: string, userId?: string }, registerUserInfoType>({
             query(info) {
