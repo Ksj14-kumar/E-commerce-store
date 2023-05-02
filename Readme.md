@@ -18,14 +18,6 @@ Checkout Page
 ![Check out](https://www.linkpicture.com/q/order_1.png)
 
 
-Other Pages
- * Cart
- * Profile
- * Orders
- * Checkout
- * Payment Summary
-
-
 ## Process to install locally
 
 1. Clone the repo
