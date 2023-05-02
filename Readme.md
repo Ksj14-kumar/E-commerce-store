@@ -5,6 +5,19 @@
 HomePage 
 ![HomePage](https://www.linkpicture.com/q/store.png)
 
+Cart Page 
+![Cart Page](https://www.linkpicture.com/q/cart_10.png)
+
+Profile Page 
+![Profile Page](https://www.linkpicture.com/q/profile_36.png)
+
+Orders Page
+![Order Page](https://www.linkpicture.com/q/Order-success.png)
+
+Checkout Page
+![Check out](https://www.linkpicture.com/q/order_1.png)
+
+
 Other Pages
  * Cart
  * Profile
